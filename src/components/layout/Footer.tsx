@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto py-12 px-4 md:px-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Column 1: About */}
           <div>
             <div className="flex items-center mb-4">
@@ -14,9 +14,8 @@ const Footer: React.FC = () => {
               <span className="text-xl font-bold text-white">Machinery<span className="text-primary-400">Hub</span></span>
             </div>
             <p className="mb-4">
-              Your trusted source for high-quality machinery, tools, and accessories. 
-              We provide professional-grade equipment for contractors, DIY enthusiasts, 
-              and industrial applications.
+              We sell top-quality tools and machines for all your needs. 
+              Great for professionals and home users alike.
             </p>
             <div className="flex space-x-4 mt-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -71,42 +70,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Column 3: Customer Service */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Customer Service</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/about" className="hover:text-primary-400 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-primary-400 transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" className="hover:text-primary-400 transition-colors">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link to="/shipping" className="hover:text-primary-400 transition-colors">
-                  Shipping & Returns
-                </Link>
-              </li>
-              <li>
-                <Link to="/warranty" className="hover:text-primary-400 transition-colors">
-                  Warranty Information
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy" className="hover:text-primary-400 transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
+
           
           {/* Column 4: Contact */}
           <div>

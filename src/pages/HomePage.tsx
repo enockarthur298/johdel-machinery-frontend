@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Professional Tools for Every Project
+Quality Tools for Any Job
             </motion.h1>
             
             <motion.p 
@@ -41,8 +41,7 @@ const HomePage: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Quality machinery, competitive prices, and expert advice for contractors, 
-              DIY enthusiasts, and industrial applications.
+Great tools at great prices. For professionals and home users.
             </motion.p>
             
             <motion.div
