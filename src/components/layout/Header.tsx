@@ -31,7 +31,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <Hammer size={28} className="text-primary-600 mr-2" />
-            <span className="text-xl font-bold text-gray-900">Machinery<span className="text-primary-600">Hub</span></span>
+            <span className="text-xl font-bold text-gray-900">Johdel <span className="text-primary-600">Machinery</span></span>
           </Link>
           
           {/* Desktop Navigation */}

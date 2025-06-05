@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-2 text-primary-400" />
-                <span>info@machineryhub.com</span>
+                <span>info@johdelmachinery.com</span>
               </li>
             </ul>
             
@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} MachineryHub. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Johdel Machinery. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -130,22 +130,7 @@ const HomePage: React.FC = () => {
         </div>
       </motion.section>
       
-      {/* Promotional banner */}
-      <section className="bg-secondary-500 py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Summer Sale: Up to 20% off on Power Drills!</h2>
-            <p className="text-lg mb-6">
-              Upgrade your workshop with our premium selection of power drills. 
-              Limited time offer, while supplies last.
-            </p>
-            <Link to="/deals" className="btn bg-white text-secondary-600 hover:bg-gray-100 px-6 py-3 font-medium">
-              Shop Deals
-            </Link>
-          </div>
-        </div>
-      </section>
-      
+
       {/* New arrivals section */}
       <motion.section 
         className="py-12"
