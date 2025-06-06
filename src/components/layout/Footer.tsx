@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center mb-4">
               <Hammer size={24} className="text-primary-400 mr-2" />
-              <span className="text-xl font-bold text-white">Machinery<span className="text-primary-400">Hub</span></span>
+              <span className="text-xl font-bold text-white">Tools<span className="text-primary-400">Home</span></span>
             </div>
             <p className="mb-4">
               We sell top-quality tools and machines for all your needs. 
@@ -62,11 +62,7 @@ const Footer: React.FC = () => {
                   Accessories
                 </Link>
               </li>
-              <li>
-                <Link to="/deals" className="hover:text-primary-400 transition-colors">
-                  Special Deals
-                </Link>
-              </li>
+              
             </ul>
           </div>
           
@@ -76,39 +72,23 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Contact Us</h3>
             <ul className="space-y-4">
-              <li className="flex items-start">
-                <MapPin size={20} className="mr-2 mt-1 text-primary-400" />
-                <span>123 Machinery Lane, Industrial District, Accra, Ghana</span>
-              </li>
+              
               <li className="flex items-center">
                 <Phone size={20} className="mr-2 text-primary-400" />
                 <span>+233 123 456 7890</span>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-2 text-primary-400" />
-                <span>info@johdelmachinery.com</span>
+                <span>toolshome@gmail.com</span>
               </li>
             </ul>
             
-            {/* Newsletter Signup */}
-            <div className="mt-6">
-              <h4 className="font-medium mb-2 text-white">Subscribe to our Newsletter</h4>
-              <form className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="input bg-gray-800 border-gray-700 text-white w-full"
-                />
-                <button type="submit" className="btn-secondary ml-2">
-                  Subscribe
-                </button>
-              </form>
-            </div>
+            
           </div>
         </div>
         
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Johdel Machinery. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Tools Home. All rights reserved.</p>
         </div>
       </div>
     </footer>
