@@ -53,9 +53,7 @@ Great tools at great prices. For professionals and home users.
               <Link to="/category/drills" className="btn-secondary">
                 Shop Now
               </Link>
-              <Link to="/deals" className="btn border border-white text-white hover:bg-white hover:text-primary-700 px-4 py-2">
-                View Special Deals
-              </Link>
+              
             </motion.div>
           </div>
         </div>
