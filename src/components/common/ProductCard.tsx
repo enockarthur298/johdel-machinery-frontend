@@ -1,22 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Star, ShoppingCart, Heart } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { Product } from '../../types';
-import { useCart } from '../../contexts/CartContext';
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { addToCart } = useCart();
-  
-  const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    addToCart(product, 1);
-  };
   
   return (
     <motion.div 
@@ -40,27 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </div>
           )}
           
-          <div className="absolute top-2 right-2 flex flex-col gap-2">
-            <motion.button 
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 bg-white rounded-full shadow-md text-gray-700 hover:text-secondary-500"
-              onClick={(e) => e.preventDefault()}
-            >
-              <Heart size={18} />
-            </motion.button>
-            
-            {product.inStock && (
-              <motion.button 
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-2 bg-white rounded-full shadow-md text-gray-700 hover:text-primary-600"
-                onClick={handleAddToCart}
-              >
-                <ShoppingCart size={18} />
-              </motion.button>
-            )}
-          </div>
+
         </div>
         
         <div className="p-4">

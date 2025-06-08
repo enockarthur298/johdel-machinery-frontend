@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { User } from '../types';
-import { mockUser } from '../data/mockData';
+import * as authService from '../api/authService';
 
 interface AuthContextType {
   user: User | null;
@@ -25,50 +25,63 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   
   // Check for saved user on initial render
   useEffect(() => {
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      try {
-        setUser(JSON.parse(savedUser));
-      } catch (error) {
-        console.error('Failed to parse user from localStorage:', error);
+    const checkAuth = async () => {
+      if (authService.isAuthenticated()) {
+        try {
+          const response = await authService.getCurrentUser();
+          if (response.data) {
+            setUser(response.data);
+          } else {
+            authService.logout();
+            setUser(null);
+          }
+        } catch (error) {
+          console.error('Failed to fetch user:', error);
+          authService.logout();
+          setUser(null);
+        }
       }
-    }
+    };
+    
+    checkAuth();
   }, []);
   
-  // For demonstration purposes, simulate a login process
   const login = async (email: string, password: string): Promise<boolean> => {
-    // In a real app, this would be an API call
-    if (email === 'demo@example.com' && password === 'password') {
-      setUser(mockUser);
-      localStorage.setItem('user', JSON.stringify(mockUser));
-      return true;
+    try {
+      const response = await authService.login({ email, password });
+      if (response.data) {
+        setUser(response.data.user);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('Login failed:', error);
+      return false;
     }
-    return false;
   };
   
-  const logout = () => {
+  const logout = useCallback(() => {
+    authService.logout();
     setUser(null);
-    localStorage.removeItem('user');
-  };
+  }, []);
   
-  // For demonstration purposes, simulate a registration process
   const register = async (
     name: string, 
     email: string, 
     password: string, 
     company?: string
   ): Promise<boolean> => {
-    // In a real app, this would be an API call
-    const newUser = {
-      id: `user_${Date.now()}`,
-      name,
-      email,
-      company
-    };
-    
-    setUser(newUser);
-    localStorage.setItem('user', JSON.stringify(newUser));
-    return true;
+    try {
+      const response = await authService.register({ name, email, password, company });
+      if (response.data) {
+        setUser(response.data.user);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('Registration failed:', error);
+      return false;
+    }
   };
   
   const value = {

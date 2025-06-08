@@ -314,117 +314,56 @@ const CheckoutPage = () => {
                   <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
                     <h2 className="text-xl font-bold mb-6">Payment Information</h2>
                     <form onSubmit={handlePaymentSubmit}>
-                      <div className="space-y-4">
+                      <div className="space-y-6">
                         <div>
-                          <h3 className="text-lg font-medium mb-4">Payment Method</h3>
+                          <h3 className="text-lg font-medium mb-4">Contact Information</h3>
                           <div className="space-y-4">
-                            <label className="flex items-center p-4 border rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
-                              <input
-                                type="radio"
-                                name="payment"
-                                value="card"
-                                checked={paymentMethod === 'card'}
-                                onChange={(e) => setPaymentMethod(e.target.value)}
-                                className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300"
-                              />
-                              <div className="ml-4">
-                                <p className="font-medium text-gray-900">Credit/Debit Card</p>
-                                <p className="text-sm text-gray-500">Secure payment with Stripe</p>
+                              <div>
+                                <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+                                  Full Name *
+                                </label>
+                                <input
+                                  type="text"
+                                  id="fullName"
+                                  name="fullName"
+                                  required
+                                  className="input w-full"
+                                  value={shippingForm.fullName}
+                                  readOnly
+                                />
                               </div>
-                            </label>
-                            
-                            <label className="flex items-center p-4 border rounded-lg cursor-pointer hover:border-primary-500 transition-colors">
-                              <input
-                                type="radio"
-                                name="payment"
-                                value="mobile"
-                                checked={paymentMethod === 'mobile'}
-                                onChange={(e) => setPaymentMethod(e.target.value)}
-                                className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300"
-                              />
-                              <div className="ml-4">
-                                <p className="font-medium text-gray-900">Mobile Money</p>
-                                <p className="text-sm text-gray-500">Pay with MTN, Vodafone, or AirtelTigo</p>
+                              
+                              <div>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                  Email Address *
+                                </label>
+                                <input
+                                  type="email"
+                                  id="email"
+                                  name="email"
+                                  required
+                                  className="input w-full"
+                                  value={user?.email || ''}
+                                  readOnly={!!user?.email}
+                                />
                               </div>
-                            </label>
+                              
+                              <div>
+                                <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-1">
+                                  Phone Number *
+                                </label>
+                                <input
+                                  type="tel"
+                                  id="phoneNumber"
+                                  name="phone"
+                                  required
+                                  className="input w-full"
+                                  value={shippingForm.phone}
+                                  readOnly
+                                />
+                              </div>
                           </div>
                         </div>
-                        
-                        {paymentMethod === 'card' && (
-                          <div className="mt-6 space-y-4">
-                            <div>
-                              <label htmlFor="cardNumber" className="block text-sm font-medium text-gray-700 mb-1">
-                                Card Number *
-                              </label>
-                              <input
-                                type="text"
-                                id="cardNumber"
-                                name="number"
-                                required
-                                className="input"
-                                placeholder="1234 5678 9012 3456"
-                                value={cardDetails.number}
-                                onChange={handleCardDetailsChange}
-                              />
-                            </div>
-                            
-                            <div>
-                              <label htmlFor="cardName" className="block text-sm font-medium text-gray-700 mb-1">
-                                Name on Card *
-                              </label>
-                              <input
-                                type="text"
-                                id="cardName"
-                                name="name"
-                                required
-                                className="input"
-                                value={cardDetails.name}
-                                onChange={handleCardDetailsChange}
-                              />
-                            </div>
-                            
-                            <div className="grid grid-cols-2 gap-4">
-                              <div>
-                                <label htmlFor="cardExpiry" className="block text-sm font-medium text-gray-700 mb-1">
-                                  Expiry Date *
-                                </label>
-                                <input
-                                  type="text"
-                                  id="cardExpiry"
-                                  name="expiry"
-                                  required
-                                  className="input"
-                                  placeholder="MM/YY"
-                                  value={cardDetails.expiry}
-                                  onChange={handleCardDetailsChange}
-                                />
-                              </div>
-                              <div>
-                                <label htmlFor="cardCvv" className="block text-sm font-medium text-gray-700 mb-1">
-                                  CVV *
-                                </label>
-                                <input
-                                  type="text"
-                                  id="cardCvv"
-                                  name="cvv"
-                                  required
-                                  className="input"
-                                  placeholder="123"
-                                  value={cardDetails.cvv}
-                                  onChange={handleCardDetailsChange}
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                        
-                        {paymentMethod === 'mobile' && (
-                          <div className="mt-6">
-                            <p className="text-sm text-gray-600">
-                              You will receive payment instructions on your phone after placing the order.
-                            </p>
-                          </div>
-                        )}
                         
                         <div className="mt-8">
                           <label className="flex items-center">

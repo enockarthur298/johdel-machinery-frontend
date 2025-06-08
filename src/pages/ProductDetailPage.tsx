@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, Heart, Share, Info, Truck, RotateCcw, Shield } from 'lucide-react';
+import { ChevronRight, Info, Truck, RotateCcw, Shield } from 'lucide-react';
 import { mockProducts } from '../data/mockData';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -188,17 +188,7 @@ const ProductDetailPage: React.FC = () => {
                       </motion.button>
                     </div>
                     
-                    <div className="flex items-center space-x-4">
-                      <button className="flex items-center text-gray-600 hover:text-secondary-500">
-                        <Heart size={18} className="mr-1" />
-                        <span>Wishlist</span>
-                      </button>
-                      
-                      <button className="flex items-center text-gray-600 hover:text-primary-600">
-                        <Share size={18} className="mr-1" />
-                        <span>Share</span>
-                      </button>
-                    </div>
+
                   </div>
                 )}
                 
